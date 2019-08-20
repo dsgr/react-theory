@@ -19,6 +19,8 @@ class App extends Component {
     })
   }
 
+  changeTitleHandler = (pageTitle) => this.setState({ pageTitle });
+
   render() {
     const divStyle = {
       'textAlign': 'center'
@@ -29,9 +31,16 @@ class App extends Component {
         <input type="text" onChange={this.handleX} />
 
         <h1 style={{ color: "red" }}>{this.state.pageTitle}</h1>
-        <Car name={this.state.cars[0].name} year={this.state.cars[0].year} />
-        <Car name={this.state.cars[1].name} year={this.state.cars[1].year} />
-
+        {this.state.cars.map((car, index) => {
+          return (
+            <Car
+              key={index}
+              name={car.name}
+              year={car.year}
+              clickHandle={this.changeTitleHandler.bind(this, car.name)}
+            />
+          )
+        })}
       </div>
     );
   }

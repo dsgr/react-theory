@@ -15,5 +15,6 @@ import React from 'react';
 export default (props) => (
 <div>
     <h3>{props.name} - {props.year}</h3>
+    <button onClick={props.clickHandle}>Click</button>
 </div>
 )
