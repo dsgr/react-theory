@@ -13,8 +13,12 @@ import React from 'react';
 // const car = () => <h2>Car component</h2>
 
 export default (props) => (
-<div>
+<div style={{
+    border: '1px solid',
+    marginBottom: '10px'
+}}>
     <h3>{props.name} - {props.year}</h3>
-    <button onClick={props.clickHandle}>Click</button>
+    <input type="text" onChange={props.onChangeName} value={props.name}/>
+    {/* <button onClick={props.clickHandle}>Click</button> */}
 </div>
 )
