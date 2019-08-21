@@ -29,6 +29,21 @@ class App extends Component {
       'textAlign': 'center'
     }
 
+    let cars = null
+    //if can be used outside jsx
+    if (this.state.showCars) {
+      cars = this.state.cars.map((car, index) => {
+        return (
+          <Car
+            key={index}
+            name={car.name}
+            year={car.year}
+            clickHandle={this.changeTitleHandler.bind(this, car.name)}
+          />
+        )
+      })
+    }
+
     return (
       <div style={divStyle}>
         <input type="text" onChange={this.handleX} />
@@ -36,23 +51,13 @@ class App extends Component {
         <button onClick={this.togleCarsHandler}>Togle Cars</button>
 
         <h1 style={{ color: "red" }}>{this.state.pageTitle}</h1>
-        {this.state.showCars ?
-          // "?" operator can be used inside jsx instead of "if"
-          this.state.cars.map((car, index) => {
-            return (
-              <Car
-                key={index}
-                name={car.name}
-                year={car.year}
-                clickHandle={this.changeTitleHandler.bind(this, car.name)}
-              />
-            )
-          })
-          : null
+
+        { 
+          cars //can be null or filled array
         }
       </div>
     );
+
   }
 }
-
 export default App;
