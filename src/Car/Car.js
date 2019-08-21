@@ -20,5 +20,7 @@ export default (props) => (
     <h3>{props.name} - {props.year}</h3>
     <input type="text" onChange={props.onChangeName} value={props.name}/>
     {/* <button onClick={props.clickHandle}>Click</button> */}
+    <button onClick={props.onDelete}>Delete</button>
+
 </div>
 )
