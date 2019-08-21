@@ -9,7 +9,8 @@ class App extends Component {
       { name: 'Ford', year: 2019 },
       { name: 'AUDI', year: 2018 }
     ],
-    pageTitle: 'Default Title'
+    pageTitle: 'Default Title',
+    showCars: false
   }
 
   handleX = (event) => {
@@ -21,6 +22,8 @@ class App extends Component {
 
   changeTitleHandler = (pageTitle) => this.setState({ pageTitle });
 
+  togleCarsHandler = (pageTitle) => this.setState({ showCars: !this.state.showCars });
+
   render() {
     const divStyle = {
       'textAlign': 'center'
@@ -29,18 +32,24 @@ class App extends Component {
     return (
       <div style={divStyle}>
         <input type="text" onChange={this.handleX} />
+        <br />
+        <button onClick={this.togleCarsHandler}>Togle Cars</button>
 
         <h1 style={{ color: "red" }}>{this.state.pageTitle}</h1>
-        {this.state.cars.map((car, index) => {
-          return (
-            <Car
-              key={index}
-              name={car.name}
-              year={car.year}
-              clickHandle={this.changeTitleHandler.bind(this, car.name)}
-            />
-          )
-        })}
+        {this.state.showCars ?
+          // "?" operator can be used inside jsx instead of "if"
+          this.state.cars.map((car, index) => {
+            return (
+              <Car
+                key={index}
+                name={car.name}
+                year={car.year}
+                clickHandle={this.changeTitleHandler.bind(this, car.name)}
+              />
+            )
+          })
+          : null
+        }
       </div>
     );
   }
