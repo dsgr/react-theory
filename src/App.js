@@ -40,7 +40,7 @@ class App extends Component {
   deleteHandler(index) {
     const cars = this.state.cars.concat()
     cars.splice(index, 1)
-    this.setState({cars})
+    this.setState({ cars })
   }
 
   render() {
@@ -72,10 +72,13 @@ class App extends Component {
         <button onClick={this.togleCarsHandler}>Togle Cars</button>
 
         <h1 style={{ color: "red" }}>{this.state.pageTitle}</h1>
-
-        {
-          cars //can be null or filled array
-        }
+        <div style={{
+          width: 400,
+          margin: 'auto',
+          paddingTop: '20px'
+        }}>
+          {cars}
+        </div>
       </div>
     );
 
