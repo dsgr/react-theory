@@ -1,18 +1,8 @@
 import React from 'react';
 import './Car.css'
-// function Car() {
-//     return <h2>Car component</h2>
-// }
+import Radium from 'radium'
 
-// const car = () =>{
-//     return(
-//         <h2>Car component</h2>
-//     )
-// }
-
-// const car = () => <h2>Car component</h2>
-
-export default (props) => {
+const Car = props => {
     const inputClasses = ['input']
 
     if (props.name !== '') {
@@ -25,8 +15,21 @@ export default (props) => {
         inputClasses.push('bold')
     }
 
+    //inline styles don`t support :hover and other pseudo classes
+    //so we can use pseudo classes in css files, or use Radium
+    //see last line: export default Radium(Car)
+    //also Radium allows to use media-queries
+    const style = {
+        border: '1px solid',
+        boxShadow: '0 4px 5px 0 rgba(0, 0, 0, .14)',
+        ':hover': {
+            border: '2px solid #aaa',
+            cursor: 'pointer'
+        }
+    }
+
     return (
-        <div className="Car">
+        <div className="Car" style={style}>
             <h3>{props.name} - {props.year}</h3>
             <input
                 type="text"
@@ -40,3 +43,6 @@ export default (props) => {
         </div>
     )
 }
+
+
+export default Radium(Car)
