@@ -1,18 +1,19 @@
 import React from 'react';
-import './Car.css'
+// import './Car.css'
+import styles from './Car.module.css'
 import Radium from 'radium'
 
 const Car = props => {
-    const inputClasses = ['input']
+    const inputClasses = [styles.input]
 
     if (props.name !== '') {
-        inputClasses.push('green')
+        inputClasses.push(styles.green)
     } else {
-        inputClasses.push('red')
+        inputClasses.push(styles.red)
     }
 
     if (props.name.length > 4) {
-        inputClasses.push('bold')
+        inputClasses.push(styles.bold)
     }
 
     //inline styles don`t support :hover and other pseudo classes
@@ -29,7 +30,7 @@ const Car = props => {
     }
 
     return (
-        <div className="Car" style={style}>
+        <div className={styles.Car} style={style}>
             <h3>{props.name} - {props.year}</h3>
             <input
                 type="text"
