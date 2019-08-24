@@ -1,5 +1,10 @@
 import React from 'react';
 // import './Car.css'
+// css modules allows to incapsulate styles and avoid 
+// style classes names overlaping.
+// In react 16+ we don`t need to use eject and modify webpack configs
+// we only need to to use name of css files like MyName.module.css
+// and import and use style classes as show below 
 import styles from './Car.module.css'
 import Radium from 'radium'
 
