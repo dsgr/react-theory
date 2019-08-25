@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 import Car from './Car/Car';
 
 class App extends Component {
@@ -69,7 +69,10 @@ class App extends Component {
       <div style={divStyle}>
         <input type="text" onChange={this.handleX} />
         <br />
-        <button onClick={this.togleCarsHandler}>Togle Cars</button>
+        <button
+          className={'AppButton'}
+          onClick={this.togleCarsHandler}
+        >Togle Cars</button>
 
         <h1 style={{ color: "red" }}>{this.state.pageTitle}</h1>
         <div style={{
