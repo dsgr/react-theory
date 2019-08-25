@@ -4,13 +4,18 @@ import './App.scss';
 import Car from './Car/Car';
 
 class App extends Component {
-  state = {
-    cars: [
-      { name: 'Ford', year: 2019 },
-      { name: 'AUDI', year: 2018 }
-    ],
-    pageTitle: 'Default Title',
-    showCars: false
+
+  constructor(props) {
+    super(props)
+    //also we can init variables in constructor
+    this.state = {
+      cars: [
+        { name: 'Ford', year: 2019 },
+        { name: 'AUDI', year: 2018 }
+      ],
+      pageTitle: 'Default Title',
+      showCars: false
+    }
   }
 
   handleX = (event) => {
@@ -75,6 +80,7 @@ class App extends Component {
         >Togle Cars</button>
 
         <h1 style={{ color: "red" }}>{this.state.pageTitle}</h1>
+        <h2>{this.props.title}</h2>
         <div style={{
           width: 400,
           margin: 'auto',
