@@ -70,6 +70,7 @@ class App extends Component {
         return (
           <Car
             key={index}
+            index={index}
             name={car.name}
             year={car.year}
             onDelete={this.deleteHandler.bind(this, index)}
